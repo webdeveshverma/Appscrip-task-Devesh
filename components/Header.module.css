@@ -1,18 +1,15 @@
-/* Header.module.css */
+/* components/Header.module.css */
 
 .header {
   background-color: #fff;
-  border-bottom: 1px solid #eee;
-  padding: 1rem 2rem;
-  position: sticky;
-  top: 0;
-  z-index: 1000;
+  border-bottom: 1px solid #ddd;
 }
 
 .container {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  padding: 1rem;
   flex-wrap: wrap;
 }
 
@@ -21,35 +18,42 @@
   font-weight: bold;
 }
 
+.hamburger {
+  display: none;
+  font-size: 1.8rem;
+  cursor: pointer;
+}
+
 .nav {
   display: flex;
   gap: 1.5rem;
-  flex-wrap: wrap;
 }
 
 .actions {
   display: flex;
   gap: 1rem;
-  flex-wrap: wrap;
-  justify-content: flex-end;
 }
 
-/* Mobile Styles */
+/* Responsive Styles */
 @media (max-width: 768px) {
-  .container {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 1rem;
+  .hamburger {
+    display: block;
   }
 
   .nav {
+    display: none;
     flex-direction: column;
-    gap: 0.5rem;
-    align-items: flex-start;
+    width: 100%;
+    margin-top: 1rem;
+  }
+
+  .nav.open {
+    display: flex;
   }
 
   .actions {
-    justify-content: space-between;
+    margin-top: 1rem;
     width: 100%;
+    justify-content: space-around;
   }
 }

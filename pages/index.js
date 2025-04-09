@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Head from 'next/head';
 import Header from '@/components/Header';
 import FilterSidebar from '@/components/FilterSidebar';
@@ -14,6 +14,17 @@ export default function Home({ products }) {
   });
 
   const [sortOrder, setSortOrder] = useState('recommended');
+
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    handleResize();
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   // Filter logic
   const filteredProducts = products.filter((product) => {
@@ -50,20 +61,23 @@ export default function Home({ products }) {
 
   return (
     <>
-    <Head>
-  <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
-    "@context": "https://schema.org",
-    "@type": "Store",
-    "name": "Mettā Muse",
-    "url": "https://your-netlify-site.netlify.app",
-    "logo": "https://your-site.com/logo.png",
-    "sameAs": [
-      "https://www.instagram.com/mettamuse",
-      "https://www.linkedin.com/company/mettamuse"
-    ]
-  })}} />
-</Head>
       <Head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Store",
+              name: "Mettā Muse",
+              url: "https://your-netlify-site.netlify.app",
+              logo: "https://your-site.com/logo.png",
+              sameAs: [
+                "https://www.instagram.com/mettamuse",
+                "https://www.linkedin.com/company/mettamuse",
+              ],
+            }),
+          }}
+        />
         <title>Discover Our Products | Appscrip Task</title>
         <meta
           name="description"
@@ -73,10 +87,17 @@ export default function Home({ products }) {
 
       <Header />
 
-      <main style={{ display: 'flex', flexDirection: 'row' }}>
-        <FilterSidebar filters={filters} setFilters={setFilters} />
+      <main
+        style={{
+          display: 'flex',
+          flexDirection: isMobile ? 'column' : 'row',
+        }}
+      >
+        <div style={{ width: isMobile ? '100%' : '250px' }}>
+          <FilterSidebar filters={filters} setFilters={setFilters} />
+        </div>
 
-        <div style={{ flex: 1, padding: '0 20px' }}>
+        <div style={{ flex: 1, padding: isMobile ? '0 10px' : '0 20px' }}>
           {/* Title Section */}
           <section style={{ padding: '40px 0', textAlign: 'center' }}>
             <h1>DISCOVER OUR PRODUCTS</h1>
@@ -87,7 +108,7 @@ export default function Home({ products }) {
             </p>
           </section>
 
-          {/* Product Grid with sort dropdown and data */}
+          {/* Product Grid */}
           <ProductGrid
             products={sortedProducts}
             selectedSort={sortOrder}
@@ -95,7 +116,8 @@ export default function Home({ products }) {
           />
         </div>
       </main>
-      <Footer/>
+
+      <Footer />
     </>
   );
 }
