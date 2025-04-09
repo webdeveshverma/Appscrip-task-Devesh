@@ -39,9 +39,9 @@ const FilterSidebar = ({ filters, setFilters }) => {
             type="checkbox"
             name="men's clothing"
             checked={filters["men's clothing"]}
-            onChange={handleCheckboxChange}
+            onChange={handleCheckboxChange}  
           />
-          Men's Clothing
+         {"Men's Clothing"}
         </label>
         <label>
           <input
@@ -50,7 +50,7 @@ const FilterSidebar = ({ filters, setFilters }) => {
             checked={filters["women's clothing"]}
             onChange={handleCheckboxChange}
           />
-          Women's Clothing
+          {"Women's Clothing"}
         </label>
       </div>
       {/* Additional filter sections can be added here */}

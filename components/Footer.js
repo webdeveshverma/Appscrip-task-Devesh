@@ -1,4 +1,5 @@
 import React from 'react';
+import Image from 'next/image';
 import styles from './Footer.module.css';
 
 const Footer = () => {
@@ -54,21 +55,31 @@ const Footer = () => {
           <h4>FOLLOW US</h4>
           <div className={styles.socials}>
             <a href="https://linkedin.com" target="_blank" rel="noreferrer">
-              <img src="https://cdn.jsdelivr.net/npm/simple-icons@v10/icons/linkedin.svg" alt="LinkedIn" width="24" />
+              <Image
+                src="https://cdn.jsdelivr.net/npm/simple-icons@v10/icons/linkedin.svg"
+                alt="LinkedIn"
+                width={24}
+                height={24}
+              />
             </a>
             <a href="https://instagram.com" target="_blank" rel="noreferrer">
-              <img src="https://cdn.jsdelivr.net/npm/simple-icons@v10/icons/instagram.svg" alt="Instagram" width="24" />
+              <Image
+                src="https://cdn.jsdelivr.net/npm/simple-icons@v10/icons/instagram.svg"
+                alt="Instagram"
+                width={24}
+                height={24}
+              />
             </a>
           </div>
 
           <h4>mettā muse ACCEPTS</h4>
           <div className={styles.payments}>
-            <img src="https://img.icons8.com/color/48/google-pay.png" alt="GPay" />
-            <img src="https://img.icons8.com/color/48/visa.png" alt="Visa" />
-            <img src="https://img.icons8.com/color/48/mastercard.png" alt="Mastercard" />
-            <img src="https://img.icons8.com/color/48/amex.png" alt="Amex" />
-            <img src="https://img.icons8.com/color/48/apple-pay.png" alt="Apple Pay" />
-            <img src="https://img.icons8.com/color/48/discover.png" alt="Discover" />
+            <Image src="https://img.icons8.com/color/48/google-pay.png" alt="GPay" width={48} height={48} />
+            <Image src="https://img.icons8.com/color/48/visa.png" alt="Visa" width={48} height={48} />
+            <Image src="https://img.icons8.com/color/48/mastercard.png" alt="Mastercard" width={48} height={48} />
+            <Image src="https://img.icons8.com/color/48/amex.png" alt="Amex" width={48} height={48} />
+            <Image src="https://img.icons8.com/color/48/apple-pay.png" alt="Apple Pay" width={48} height={48} />
+            <Image src="https://img.icons8.com/color/48/discover.png" alt="Discover" width={48} height={48} />
           </div>
         </div>
       </div>
