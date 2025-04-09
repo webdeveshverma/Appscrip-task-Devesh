@@ -1,0 +1,36 @@
+/* components/Header.module.css */
+.header {
+    border-bottom: 1px solid #ccc;
+    padding: 20px 0;
+  }
+  
+  .container {
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .logo {
+    font-weight: bold;
+    font-size: 20px;
+  }
+  
+  .nav {
+    display: flex;
+    gap: 20px;
+  }
+  
+  .nav a {
+    font-size: 14px;
+    font-weight: 500;
+  }
+  
+  .actions {
+    display: flex;
+    gap: 15px;
+    font-size: 14px;
+  }
+  

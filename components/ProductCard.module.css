@@ -1,0 +1,35 @@
+/* components/ProductCard.css */
+
+.product-card {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 10px;
+    text-align: center;
+    background-color: #fff;
+    transition: transform 0.3s ease;
+  }
+  
+  .product-card:hover {
+    transform: scale(1.03);
+  }
+  
+  .product-image {
+    max-width: 100px;
+    height: 100px;
+    object-fit: contain;
+    margin-bottom: 10px;
+  }
+  
+  .product-title {
+    font-size: 16px;
+    margin: 10px 0;
+    height: 48px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  
+  .product-price {
+    color: #0070f3;
+    font-weight: bold;
+  }
+  
