@@ -1,7 +1,9 @@
 // pages/_app.js
+import { wrapper } from '@/store';
+import '@/styles/global.css';
 
-import '../styles/global.css';
-
-export default function App({ Component, pageProps }) {
+function MyApp({ Component, pageProps }) {
   return <Component {...pageProps} />;
 }
+
+export default wrapper.withRedux(MyApp);

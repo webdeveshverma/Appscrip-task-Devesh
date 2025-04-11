@@ -1,9 +1,11 @@
 // components/Header.js
 import React, { useState } from 'react';
+import { useSelector } from 'react-redux';
 import styles from './Header.module.css';
 
 const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
+  const wishlistCount = useSelector((state) => state.wishlist.items.length);
 
   return (
     <header className={styles.header}>
@@ -24,8 +26,7 @@ const Header = () => {
 
         <div className={styles.actions}>
           <span>🔍</span>
-          <span>🧡</span>
-          <span>🛒</span>
+          <span>🧡 {wishlistCount}</span>
           <span>👤</span>
           <span>ENG ▼</span>
         </div>
